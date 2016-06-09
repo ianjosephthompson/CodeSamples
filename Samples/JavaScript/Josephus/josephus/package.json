@@ -1,0 +1,11 @@
+{
+  "name": "josephus",
+  "version": "1.0.0",
+  "description": "A simple module which models a generalized version of the Josephus Problem with an array-based implementation.",
+  "main": "josephus.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Ian Joseph Thompson",
+  "license": "CC-BY-NC-SA-4.0"
+}

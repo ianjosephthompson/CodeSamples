@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Josephus Example</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <style>
+            body {
+                padding: 0px 0px 0px 20px;
+                min-width: 500px
+            }
+            input[type="number"] {
+                width: 60px
+            }
+        </style>
+
+        <script src="josephus/josephus.js"></script>
+
+        <script>
+            function onCalculate () {
+                var sizeInputField = document.getElementsByName("size")[0];
+                var indexInputField = document.getElementsByName("index")[0];
+                var killRadioFields = document.getElementsByName("killdir");
+                var killInputField = document.getElementsByName("kill")[0];
+                var swordRadioFields = document.getElementsByName("sworddir");
+                var swordInputField = document.getElementsByName("sword")[0];
+                var resultField = document.getElementsByName("result")[0];
+
+                var size = parseInt(sizeInputField.value);
+                var index = parseInt(indexInputField.value);
+                var kill = parseInt(killInputField.value);
+                var sword = parseInt(swordInputField.value);
+
+                var result;
+
+                if (killRadioFields[1].checked === true) {
+                    kill *= -1;
+                }
+                if (swordRadioFields[1].checked === true) {
+                    sword *= -1;
+                }
+
+                result = josephus(size, index, kill, sword);
+
+                if (result === -1) {
+                    resultField.innerHTML = "<b>Validation Error!</b>" +
+                        "<br>" +
+                        "Sword index must be greater than or equal to zero.<br>" +
+                        "Sword index must be less than number of zealots.<br>" +
+                        "Counts must be greater than zero."
+                } else {
+                    resultField.innerHTML = "<b>The safe position to stand is at " +
+                        "index " + result.toString() + "</b>";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Josephus Calculator</h1>
+        <p>
+            The Josephus Problem asks where is the safe position to stand in a 
+            circle of zealots committing suicide with a single sword.
+        </p>
+        <p>
+            The parameters of the zealots' method greatly influences the result.
+            <br>
+            Try it out!
+        </p>
+        <br>
+        <p>
+            <b>Number of zealots:</b>
+            <input type="number" name="size" value="40" required autofocus></input>
+            (must be > 2)
+        </p>
+        <p>
+            <b>Sword begins at index:</b>
+            <input type="number" name="index" value="0" required></input>
+            (must be >= 0 and < number of zealots)
+        <p>
+            <b>Count:</b>
+            <input type="radio" name="killdir" checked="checked" required>left</input>
+            <input type="radio" name="killdir" required>right</input>
+            <input type="number" name="kill" value="1" required></input>
+            zealots to kill (must be > 0)
+        </p>
+        <p>
+            <b>Count:</b>
+            <input type="radio" name="sworddir" checked="checked" required>left</input>
+            <input type="radio" name="sworddir" required>right</input>
+            <input type="number" name="sword" value="1" required></input>
+            zealots to pass the sword (must be > 0)
+        </p>
+        <p>
+            <button onclick="onCalculate()">Calculate!</button>
+        </p>
+        <br>
+        <p name="result"></p></b>
+    </body>
+</html>

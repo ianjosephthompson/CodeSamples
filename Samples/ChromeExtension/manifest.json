@@ -1,0 +1,64 @@
+//  https://developer.chrome.com/extensions/manifest
+{
+    //  Extension Details
+    "name": "My Chrome Extension",
+    "short_name": "My Chrome Extension",    //  limited to 12 chars
+    "description": "My Chrome Extension is pretty nifty guys!",
+    "default_locale": "en",
+
+    //  Development Details
+    "manifest_version": 2,
+    "author": "Ian Joseph Thompson",
+    "version": "0.0.0.0",
+    "version_name": "v Zero",
+
+    //  Visual Details
+    "icons": {
+        //  Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+        "128": "icons/smartphone-with-glasses-128.png",
+        "64": "icons/smartphone-with-glasses-64.png",
+        "32": "icons/smartphone-with-glasses-32.png",
+        "16": "icons/smartphone-with-glasses-16.png"
+    },
+
+    //  Action Details
+    "browser_action": {
+        "default_title": "My Chrome Extension",
+        "default_icon": {
+            "32": "icons/smartphone-with-glasses-32.png",
+            "16": "icons/smartphone-with-glasses-16.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+
+    //  the options page
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": false
+    },
+
+    //  content scripts are injected to each page visited by Chrome
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*" //  via https://developer.chrome.com/extensions/match_patterns
+            ],
+            "js": [
+                "scripts/inject.js"
+            ]
+        }
+    ],
+
+    //  background scripts
+    "background": {
+        "scripts": [
+            "scripts/background.js"
+        ],
+        "persistent": false
+    },
+
+    //  Chrome API permissions we may need the user to authorize for us
+    "optional_permissions": [
+        "activeTab"
+    ]
+}

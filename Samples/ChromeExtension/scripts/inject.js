@@ -1,0 +1,1 @@
+console.log("I am injected to each page visited by Chrome!");

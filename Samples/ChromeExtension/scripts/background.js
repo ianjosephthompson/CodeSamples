@@ -1,0 +1,1 @@
+console.log("I am a script that runs in the background as needed.");

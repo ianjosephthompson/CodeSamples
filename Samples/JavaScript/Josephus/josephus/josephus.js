@@ -30,12 +30,12 @@
  * 
  * Background:
  * The Josephus Problem is a well-known mathematical puzzle based upon an 
- * account given by a 1st century Jewish historian named Flavius Josephus about 
- * his participation in the events surrounding the Jewish revolt of 66-70 CE 
- * against Roman rule. In the account, Josephus as a Jewish general held the 
- * fortress of Jotapata for 47 days, but after the fall of the city he claimed 
- * to have taken refuge with some 40 zealots in a cave. Fearing defeat more
- * than death the zealots resolved themselves to suicide.
+ * account given by a 1st century historian named Flavius Josephus about his 
+ * participation in the events surrounding the revolt of 66-70 CE against Roman 
+ * rule. In the account, the general Josephus held the fortress of Jotapata for 
+ * 47 days, but after the fall of the city he claimed to have taken refuge with 
+ * some 40 zealots in a cave. Fearing defeat more than death the zealots 
+ * resolved themselves to suicide.
  * 
  * In one version of the story, the zealots only had a single sword with them 
  * in the cave. So, they stood in a circle and drew lots. The winner took the 
